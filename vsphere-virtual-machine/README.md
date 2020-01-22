@@ -1,4 +1,4 @@
-# example usage
+# Example usage
 
 ```
 module "test-vm" {
@@ -23,6 +23,10 @@ module "test-vm" {
   instance_count    = "number, count of vms, will be created with name-0, name-1, ..."
   with_vm_clone     = "bool, clone vm or create blank vm without cloning"
   vsphere_vm_folder = "string, folder in esxi where to store vm"
+  network_address   = "list of lists. each list for vm interfaces"
+  ipv4_netmask      = "number, cidr netmask"
+  ipv4_gateway      = "string, gateway"
+  dns_server_list   = "list, dns servers"
 
   vsphere_virtual_machine_template_name = "string, name of template to copy vm from"
 }
