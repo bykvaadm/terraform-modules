@@ -1,6 +1,6 @@
 variable "vsphere_datacenter_name" {}
 
-variable "vsphere_datastore_name" {}
+variable "datastore_name" {}
 
 variable "vsphere_resource_pool_name" {}
 
@@ -21,6 +21,11 @@ variable "num_cpus" {}
 
 variable "memory" {}
 
+variable "memory_reservation" {
+  type = number
+  default = 0
+}
+
 variable "disk_size" {
   type    = list
   default = []
@@ -29,8 +34,6 @@ variable "disk_size" {
 variable "instance_count" {
   default = 1
 }
-
-variable "groups" {}
 
 variable "category" {}
 
@@ -77,4 +80,25 @@ variable "dns_server_list" {
 
 variable "scsi_type" {
   default = "pvscsi"
+}
+
+variable "cdrom_datastore_id" {
+  default = ""
+}
+variable "cdrom_iso_path" {
+  default = ""
+}
+variable "environment" {}
+
+variable "operation_system" {
+  default = "linux"
+}
+
+variable "firmware" {
+  default = "bios"
+}
+
+variable "prometheus" {
+  type = list
+  default = []
 }
