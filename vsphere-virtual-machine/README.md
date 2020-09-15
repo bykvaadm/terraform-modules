@@ -2,7 +2,7 @@
 
 ```
 module "test-vm" {
-  source = "git::https://git@github.com:bykvaadm/terraform-modules.git//vsphere-virtual-machine?ref=v1.0.10"
+  source = "git::https://git@github.com:bykvaadm/terraform-modules.git//vsphere-virtual-machine?ref=v1.1"
 
   vsphere_datacenter_name    = "string, put vsphere datacenter here"
   vsphere_datastore_name     = "string, put vsphere datastore here (where should vm disks stored)"
