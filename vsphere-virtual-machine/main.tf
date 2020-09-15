@@ -125,6 +125,8 @@ resource "vsphere_virtual_machine" "vm" {
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = element(data.vsphere_datastore.datastore.*.id, count.index)
   enable_disk_uuid = "true"
+  firmware         = var.firmware
+  nested_hv_enabled = var.nested_hv_enabled
 
   num_cpus               = var.num_cpus
   cpu_hot_add_enabled    = true
@@ -202,6 +204,8 @@ resource "vsphere_virtual_machine" "windows_vm" {
   datastore_id     = element(data.vsphere_datastore.datastore.*.id, count.index)
   enable_disk_uuid = "true"
   firmware         = var.firmware
+  nested_hv_enabled = var.nested_hv_enabled
+
 
   num_cpus               = var.num_cpus
   cpu_hot_add_enabled    = true
@@ -280,6 +284,8 @@ resource "vsphere_virtual_machine" "blank_vm" {
   wait_for_guest_ip_timeout   = 0
   wait_for_guest_net_routable = false
   wait_for_guest_net_timeout  = 0
+  nested_hv_enabled = var.nested_hv_enabled
+  firmware         = var.firmware
 
   num_cpus               = var.num_cpus
   cpu_hot_add_enabled    = true
